@@ -6,7 +6,7 @@
 ## Integrantes:
   - Condori Huarcaya Gian Piere
   - Contreras Cerrón David
-  - García Betancourt Josué
+  - García Betancourt Josué gay
   - Torre Medina Raúl
 
   
