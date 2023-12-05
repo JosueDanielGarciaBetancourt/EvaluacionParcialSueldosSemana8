@@ -16,7 +16,7 @@ def on_combobox_change(*args):
     labeLBoniActual.config(text=f'La bonificacion actual es de: {boniActu}' )
 
 
-def abrir_ventana3():
+def abrir_ventana3(root):
     ventana3 = tk.Toplevel()
     ventana3.title("Actualizar Bonificacion")
     ventana3.geometry('430x550')
@@ -54,8 +54,14 @@ def abrir_ventana3():
     buttonBoni = tk.Button(frame, text='Guardar Cambios',command=lambda : GuardarBoni(entryBoni.get()))
     buttonBoni.grid(row=4, column=0, columnspan=2, pady=50)
 
+    buttonvolver = tk.Button(frame, text='volver', command=lambda: volver(ventana3,root))
+    buttonvolver.grid(row=5, column=0, columnspan=2, pady=50)
+
     txt.trace_add("write", on_combobox_change)
 
+def volver(ventana,root):
+    ventana.withdraw()
+    root.deiconify()
 def GuardarBoni(nuevaBoni):
     boni=SQLBonificacion(id_bonificacion=id,bon_valor=nuevaBoni)
     boni.ActualizarBonificacion()

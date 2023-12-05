@@ -10,11 +10,12 @@ from src.Clases.ClaseBoletaPago import SQLBoletaPago
 from datetime import datetime
 from src.Clases.ClasePDF import GeneradorBoletaPago
 
-def abrir_ventana2():
+def abrir_ventana2(root):
     global ventanaGE1
     ventanaGE1 = tk.Toplevel()
     ventanaGE1.title('Buscar Empleado')
     ventanaGE1.geometry("600x400")
+
     ventanaGE = tk.Frame(ventanaGE1)
     ventanaGE.label = tk.Label(ventanaGE1, text="Nombre del Empleado:")
     ventanaGE.label.grid(row=0, column=0, padx=10, pady=10)
@@ -39,10 +40,21 @@ def abrir_ventana2():
     ventanaGE.botonSeleccionar2.config(bg='grey', fg='White')
     ventanaGE.botonSeleccionar2.grid(row=3, column=2, padx=10, pady=10)
 
+
+    ventanaGE.volver = tk.Button(ventanaGE1, text='volver',
+                                            command=lambda: volver(ventanaGE1,root))
+    ventanaGE.volver.config(bg='grey', fg='White')
+    ventanaGE.volver.grid(row=4, column=2, padx=10, pady=10)
+
+
     ventanaGE.tablaB.bind('<ButtonRelease-1>', lambda event: habilitar(ventanaGE))
 
     deshabilitar(ventanaGE)
 
+
+def volver(ventana,root):
+    ventana.withdraw()
+    root.deiconify()
 
 def BuscarEmpleado(ventanaGE):
     ventanaGE.tablaB.delete(*ventanaGE.tablaB.get_children())

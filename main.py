@@ -2,7 +2,9 @@ import tkinter as tk
 from src.ventanas import ViewAgregarEmpleado, ViewGestionarEmpleado,ViewActualizarBonificacion
 
 def abrir_ventana(ventana):
-    ventana()
+    ventana(root)
+    root.withdraw()
+
 
 root = tk.Tk()
 root.title("Menú Principal")
@@ -19,7 +21,7 @@ img_gestionarB = tk.PhotoImage(file="Recursos/bonificacion.png")
 
 
 btn_AgregarEmpleado = tk.Button(frame, image=img_crear, command=lambda: abrir_ventana(
-    ViewAgregarEmpleado.abrir_ventana1))
+ViewAgregarEmpleado.abrir_ventana1))
 btn_AgregarEmpleado.image = img_crear
 btn_AgregarEmpleado.config( fg='white', bg='grey', activebackground='green')
 btn_AgregarEmpleado.grid(row=1, column=3, padx=10, pady=10)
