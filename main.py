@@ -9,11 +9,11 @@ def abrir_ventana(ventana):
 root = tk.Tk()
 root.title("Menú Principal")
 
-root.configure(bg='#27282c')
+root.configure(bg='#6b6b6f')
 root.geometry('430x630')
 frame = tk.Frame(root)
 frame.pack()
-frame.configure(bg='#27282c')
+frame.configure(bg='#6b6b6f')
 img_crear = tk.PhotoImage(file="Recursos/add.png")
 img_gestionar = tk.PhotoImage(file="Recursos/gestionarE.png")
 img_gestionarB = tk.PhotoImage(file="Recursos/bonificacion.png")
@@ -45,15 +45,15 @@ btn_Salir.grid(row=4, column=3, sticky="ew")
 
 
 btn_josue = tk.Label(frame, image=img_imagen)
-btn_josue.config(fg='white', bg='#27282c', activebackground='green')
+btn_josue.config(fg='white', bg='#6b6b6f', activebackground='green')
 btn_josue.grid(row=0, column=2, padx=10, pady=10,   columnspan=3)
 
 lobo = tk.Label(frame, image=img_imagenLOBO)
-lobo.config(fg='white', bg='#27282c', activebackground='green')
+lobo.config(fg='white', bg='#6b6b6f', activebackground='green')
 lobo.grid(row=3, column=5,columnspan=4)
 
 titulo = tk.Label(frame, image=img_imagentitulo)
-titulo.config(fg='white', bg='#27282c', activebackground='green')
+titulo.config(fg='white', bg='#6b6b6f', activebackground='green')
 titulo.grid(row=2, column=5,columnspan=4)
 
 
