@@ -41,7 +41,7 @@ class SQLEmpleado:
             self.conexion.commit()
             print('Empleado eliminado')
         except Exception as e:
-            print(f'Error al eliminar empleado: {e}')
+            messagebox.showerror('Error','El empleado tiene boletas asignadas y no se puede eliminar')
         finally:
             self.CerrarConexion()
 
