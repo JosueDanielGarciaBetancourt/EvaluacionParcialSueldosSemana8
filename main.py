@@ -44,9 +44,9 @@ btn_Salir.config(font=('Times New Roman', 10, 'bold'), fg='#D01818', bg='#Ce8d8d
 btn_Salir.grid(row=4, column=3, padx=10, pady=(50, 10), sticky="ew")
 
 
-btn_josue = tk.Button(frame, image=img_imagen)
-btn_josue.config(fg='white', bg='grey', activebackground='green')
-btn_josue.grid(row=5, column=3, padx=10, pady=10)
+btn_josue = tk.Label(frame, image=img_imagen)
+btn_josue.config(fg='white', bg='#A1b0cb', activebackground='green')
+btn_josue.grid(row=0, column=2, padx=10, pady=10,   columnspan=3)
 
 
 root.mainloop()
