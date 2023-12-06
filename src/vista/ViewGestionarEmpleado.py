@@ -1,14 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
 from src.modelo.conexion_db import Conexion
-from src.Clases.ClaseDetalleMensualTrabajador import SQLDetalleMensualTrabajador
-from src.Clases.ClaseDetalleMes import SQLMes
-from src.Clases.ClaseEmpleado import SQLEmpleado
-from src.logica.CalculoSueldo import calcularSueldo
-from src.Clases.ClaseBonificacion import SQLBonificacion
-from src.Clases.ClaseBoletaPago import SQLBoletaPago
+from src.logica.ClaseDetalleMensualTrabajador import SQLDetalleMensualTrabajador
+from src.logica.ClaseDetalleMes import SQLMes
+from src.logica.ClaseEmpleado import SQLEmpleado
+from src.logica.CalculoSueldo import CalcularSueldo
+from src.logica.ClaseBonificacion import SQLBonificacion
+from src.logica.ClaseBoletaPago import SQLBoletaPago
 from datetime import datetime
-from src.Clases.ClasePDF import GeneradorBoletaPago
+from src.logica.ClasePDF import GeneradorBoletaPago
+
 
 def abrir_ventana2(root):
     global ventanaGE1
@@ -40,21 +41,20 @@ def abrir_ventana2(root):
     ventanaGE.botonSeleccionar2.config(bg='grey', fg='White')
     ventanaGE.botonSeleccionar2.grid(row=3, column=2, padx=10, pady=10)
 
-
     ventanaGE.volver = tk.Button(ventanaGE1, text='volver',
-                                            command=lambda: volver(ventanaGE1,root))
+                                 command=lambda: volver(ventanaGE1, root))
     ventanaGE.volver.config(bg='grey', fg='White')
     ventanaGE.volver.grid(row=4, column=2, padx=10, pady=10)
-
 
     ventanaGE.tablaB.bind('<ButtonRelease-1>', lambda event: habilitar(ventanaGE))
 
     deshabilitar(ventanaGE)
 
 
-def volver(ventana,root):
+def volver(ventana, root):
     ventana.withdraw()
     root.deiconify()
+
 
 def BuscarEmpleado(ventanaGE):
     ventanaGE.tablaB.delete(*ventanaGE.tablaB.get_children())
@@ -72,7 +72,7 @@ def Seleccion1(ventanaGE):
     if selected_item:
         selected_row = ventanaGE.tablaB.item(selected_item)
         ventanaGE.id = selected_row['text']  # ID en la columna 0
-        ide=ventanaGE.id
+        ide = ventanaGE.id
         ventanaGE.nombre = selected_row['values'][0]  # Nombre en la columna 1
     conexion = Conexion()
     cursor = conexion.cursor()
@@ -100,14 +100,15 @@ def Seleccion1(ventanaGE):
     boton.grid(row=3, column=0, columnspan=3)
     cursor.close()
     conexion.close()
+
+
 def VerDetalle():
     selected_item = tablaBOL.selection()
     if selected_item:
         selected_row = tablaBOL.item(selected_item)
         id = selected_row['text']  # ID en la columna 0
 
-    GeneradorBoletaPago(id_boleta=id,id_empleado=ide)
-
+    GeneradorBoletaPago(id_boleta=id, id_empleado=ide)
 
 
 def Seleccion2(ventanaGE):
@@ -148,6 +149,7 @@ def Seleccion2(ventanaGE):
     botonGuarda.config(bg='grey', fg='White')
     botonGuarda.grid(row=6, column=2, padx=10, pady=10)
 
+
 def GuardarDATOSEMPLEDO(id, ventana):
     fecha = datetime.now()
     anio = fecha.year
@@ -185,7 +187,7 @@ def GuardarDATOSEMPLEDO(id, ventana):
     movilidad = bon1.LeerBonificacion()[2]
     suplementaria = bon2.LeerBonificacion()[2]
     sueldo = float(sueldo)
-    sueldope = calcularSueldo(sueldo=sueldo, horasExtra=horas, diasFalta=dias, minutosTardanza=minutos,
+    sueldope = CalcularSueldo(sueldo=sueldo, horasExtra=horas, diasFalta=dias, minutosTardanza=minutos,
                               Movilidad=movilidad, Suplementaria=suplementaria)
 
     sueldoNeto = sueldope.CalcularSueldoNeto()
@@ -208,6 +210,7 @@ def GuardarDATOSEMPLEDO(id, ventana):
     boleta = SQLBoletaPago(id2, sueldoNeto, descuentoTotal, bonificacionTotal, fecha2, id)
     boleta.AgregarBoletaPago()
     ventanaGE1.destroy()
+
 
 def deshabilitar(ventanaGE):
     ventanaGE.botonSeleccionar.grid_remove()

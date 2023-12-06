@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from src.modelo.conexion_db import Conexion
-from src.Clases.ClaseEmpleado import SQLEmpleado
+from src.logica.ClaseEmpleado import SQLEmpleado
 
 
 def abrir_ventana1(root):

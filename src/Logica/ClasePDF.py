@@ -1,7 +1,6 @@
-
 import subprocess
-from src.Clases.ClaseEmpleado import SQLEmpleado
-from src.Clases.ClaseBoletaPago import SQLBoletaPago
+from src.logica.ClaseEmpleado import SQLEmpleado
+from src.logica.ClaseBoletaPago import SQLBoletaPago
 from fpdf import FPDF
 
 class GeneradorBoletaPago(FPDF):
@@ -62,8 +61,9 @@ class GeneradorBoletaPago(FPDF):
         self.set_x(x_position)
 
         # Guardar el PDF en un archivo
-        nombre_archivo = f'src/Data/BoletasDePago/boleta_pago_{self.id_boleta}.pdf'
+        nombre_archivo = f'src/modelo/BoletasDePago/boleta_pago_{self.id_boleta}.pdf'
         self.output(nombre_archivo)
+
         # Abrir el archivo PDF
         subprocess.run(["start", "", nombre_archivo], shell=True, check=True)
 

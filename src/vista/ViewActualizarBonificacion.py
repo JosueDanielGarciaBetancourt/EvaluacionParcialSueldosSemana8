@@ -1,7 +1,7 @@
 
-from src.Clases.ClaseBonificacion import SQLBonificacion
+from src.logica.ClaseBonificacion import SQLBonificacion
 import tkinter as tk
-from tkinter import ttk , messagebox
+from tkinter import ttk
 
 
 def on_combobox_change(*args):
