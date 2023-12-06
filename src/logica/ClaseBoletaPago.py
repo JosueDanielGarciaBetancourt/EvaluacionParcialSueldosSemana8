@@ -1,8 +1,10 @@
 from src.modelo.conexion_db import Conexion
 from tkinter import messagebox
 
+
 class SQLBoletaPago:
-    def __init__(self, id_boleta=None, sueldo_neto=None, descuento_total=None, bonificacion_total=None, fecha_emision=None, id_empleado=None):
+    def __init__(self, id_boleta=None, sueldo_neto=None, descuento_total=None, bonificacion_total=None,
+                 fecha_emision=None, id_empleado=None):
         self.id_boleta = id_boleta
         self.sueldo_neto = sueldo_neto
         self.descuento_total = descuento_total
@@ -14,7 +16,8 @@ class SQLBoletaPago:
         self.cursor = self.conexion.cursor()
 
     def AgregarBoletaPago(self):
-        dato = (self.id_boleta, self.sueldo_neto, self.descuento_total, self.bonificacion_total, self.fecha_emision, self.id_empleado)
+        dato = (self.id_boleta, self.sueldo_neto, self.descuento_total, self.bonificacion_total, self.fecha_emision,
+                self.id_empleado)
         consulta = "INSERT INTO tblBoletaPago (IDBoleta, bolSueldoNeto, bolDescuentoTotal, bolBonificacionTotal, bolFechaEmision, IDEmpleado) VALUES (?, ?, ?, ?, ?, ?)"
         try:
             self.cursor.execute(consulta, dato)

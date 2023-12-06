@@ -4,7 +4,7 @@ from src.logica.ClaseBoletaPago import SQLBoletaPago
 from fpdf import FPDF
 
 class GeneradorBoletaPago(FPDF):
-    def __init__(self, id_boleta,id_empleado):
+    def __init__(self, id_boleta, id_empleado):
         super().__init__()
         self.id_boleta = id_boleta
         self.id_empleado=id_empleado
@@ -24,20 +24,25 @@ class GeneradorBoletaPago(FPDF):
         empleado = SQLEmpleado(id=self.id_empleado)
         datos_empleado = empleado.LeerEmpleado()
         nombre = datos_empleado[0][1]
+        sueldo_basico = datos_empleado[0][2]
         cargo = datos_empleado[0][3]
 
         boleta = SQLBoletaPago(self.id_boleta)
         datos_boleta = boleta.LeerBoletaPago()
+        sueldo_neto = datos_boleta[1]
         descuento = datos_boleta[2]
         bonificacion = datos_boleta[3]
-        sueldo_neto = datos_boleta[1]
+        fecha_emision = datos_boleta[4]
 
         # Agregar detalles a la boleta
         self.add_page()
         self.set_font('Arial', '', 12)
+        self.cell(0, 10, 'ID Empleado: {}'.format(self.id_empleado), 0, 1)
         self.cell(0, 10, 'Nombre del Empleado: {}'.format(nombre), 0, 1)
         self.cell(0, 10, 'Cargo: {}'.format(cargo), 0, 1)
+        self.cell(0, 10, 'Sueldo básico: {}'.format(sueldo_basico), 0, 1)
         self.cell(0, 10, 'ID Boleta: {}'.format(self.id_boleta), 0, 1)
+        self.cell(0, 10, f'Fecha de emisión: {fecha_emision}')
         self.ln(10)
 
         # Encabezados de la tabla
