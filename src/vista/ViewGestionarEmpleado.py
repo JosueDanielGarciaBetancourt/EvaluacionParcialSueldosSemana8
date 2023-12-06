@@ -41,7 +41,7 @@ def abrir_ventana2(root):
     ventanaGE.botonSeleccionar2.config(bg='grey', fg='White')
     ventanaGE.botonSeleccionar2.grid(row=3, column=2, padx=10, pady=10)
 
-    ventanaGE.volver = tk.Button(ventanaGE1, text='volver',
+    ventanaGE.volver = tk.Button(ventanaGE1, text='Volver',
                                  command=lambda: volver(ventanaGE1, root))
     ventanaGE.volver.config(bg='grey', fg='White')
     ventanaGE.volver.grid(row=4, column=2, padx=10, pady=10)
@@ -171,12 +171,7 @@ def GuardarDATOSEMPLEDO(id, ventana):
     if dias == None:
         dias = 0
 
-    if consultames == 1:
-        detallemesEmpleado = SQLDetalleMensualTrabajador(id, mes, anio, horas, minutos, detailDiasFalta=dias)
-
-    else:
-        detallemes.AgregarMes()
-        detallemesEmpleado = SQLDetalleMensualTrabajador(id, mes, anio, horas, minutos, detailDiasFalta=dias)
+    detallemesEmpleado = SQLDetalleMensualTrabajador(id, mes, anio, horas, minutos, detailDiasFalta=dias)
 
     detallemesEmpleado.AgregarDetalleMensualTrabajador()
 
@@ -209,7 +204,7 @@ def GuardarDATOSEMPLEDO(id, ventana):
 
     boleta = SQLBoletaPago(id2, sueldoNeto, descuentoTotal, bonificacionTotal, fecha2, id)
     boleta.AgregarBoletaPago()
-   # ventanaGE1.destroy()
+    ventanaCrearNuevoSueldo.withdraw()
 
 
 def deshabilitar(ventanaGE):

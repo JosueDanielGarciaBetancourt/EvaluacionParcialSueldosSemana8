@@ -62,8 +62,8 @@ def abrir_ventana1(root):
                                      activebackground='green')
     frameAgregar.boton_Editar.grid(row=6, column=0, padx=10, pady=10)
 
-    frameAgregar.boton_volver = tk.Button(frameAgregar, text='volver',command=lambda: volver(ventana1,root))
-    frameAgregar.boton_volver.config(width=20, font=('Times New Roman', 14, 'bold'), fg='Yellow', bg='Green',
+    frameAgregar.boton_volver = tk.Button(frameAgregar, text='Volver',command=lambda: volver(ventana1,root))
+    frameAgregar.boton_volver.config(width=20, font=('Times New Roman', 14, 'bold'), fg='Yellow', bg='Grey',
                                      activebackground='gray')
     frameAgregar.boton_volver.grid(row=7, column=2, padx=10, pady=10)
 

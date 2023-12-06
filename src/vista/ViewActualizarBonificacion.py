@@ -54,9 +54,9 @@ def abrir_ventana3(root):
     buttonBoni = tk.Button(frame, text='Guardar Cambios',command=lambda : GuardarBoni(entryBoni.get()))
     buttonBoni.grid(row=4, column=0, columnspan=2, pady=50)
 
-    buttonvolver = tk.Button(frame, text='volver', command=lambda: volver(ventana3,root))
+    buttonvolver = tk.Button(frame, text='Volver', command=lambda: volver(ventana3,root))
     buttonvolver.grid(row=5, column=0, columnspan=2, pady=50)
-
+    buttonvolver.config(bg='grey', fg='White')
     txt.trace_add("write", on_combobox_change)
 
 def volver(ventana,root):

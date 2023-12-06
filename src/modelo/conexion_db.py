@@ -2,7 +2,7 @@ import pyodbc
 
 def Conexion():
     SERVER = 'localhost'
-    DATABASE = 'dbCalculoSueldo2'
+    DATABASE = 'dbCalculoSueldo'
     USERNAME = 'Pier2'
     PASSWORD = '123'
     try:
