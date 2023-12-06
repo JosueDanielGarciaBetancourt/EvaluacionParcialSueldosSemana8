@@ -22,7 +22,7 @@ class SQLDetalleMensualTrabajador:
             self.conexion.commit()
             print('Detalle mensual del trabajador guardado correctamente')
         except Exception as e:
-            messagebox.showerror('Mensaje','Ya se creó un sueldo para este mes de este empleado')
+            pass
         finally:
             self.CerrarConexion()
 

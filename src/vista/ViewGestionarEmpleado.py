@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 from src.modelo.conexion_db import Conexion
 from src.logica.ClaseDetalleMensualTrabajador import SQLDetalleMensualTrabajador
 from src.logica.ClaseDetalleMes import SQLMes
@@ -106,10 +106,10 @@ def VerDetalle():
     selected_item = tablaBOL.selection()
     if selected_item:
         selected_row = tablaBOL.item(selected_item)
-        id = selected_row['text']  # ID en la columna 0
-
-    GeneradorBoletaPago(id_boleta=id, id_empleado=ide)
-
+        id_boletaRow = selected_row['text']  # ID en la columna 0
+        GeneradorBoletaPago(id_boleta=id_boletaRow, id_empleado=ide)
+    else:
+        messagebox.showinfo('Mensaje de error', f'No has seleccionado ninguna boleta')
 
 def Seleccion2(ventanaGE):
     global ventanaCrearNuevoSueldo

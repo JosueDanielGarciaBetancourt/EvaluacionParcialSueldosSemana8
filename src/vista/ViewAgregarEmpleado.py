@@ -76,6 +76,8 @@ def abrir_ventana1(root):
 def volver(ventana,root):
     ventana.withdraw()
     root.deiconify()
+
+
 def deshabilitar_campos(frameAgregar):
     frameAgregar.entry_Cargo.config(state='disable')
     frameAgregar.entry_Sueldo.config(state='disable')
