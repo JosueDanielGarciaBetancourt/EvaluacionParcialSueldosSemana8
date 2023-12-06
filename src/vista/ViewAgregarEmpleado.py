@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from src.Data.conexion_db import Conexion
+from src.modelo.conexion_db import Conexion
 from src.Clases.ClaseEmpleado import SQLEmpleado
 
 

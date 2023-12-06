@@ -1,4 +1,4 @@
-from src.Data.conexion_db import Conexion
+from src.modelo.conexion_db import Conexion
 from tkinter import messagebox
 class SQLDetalleMensualTrabajador:
     def __init__(self, IDEmpleado=None, IDMes=None, detailAnio=None, detailHorasExtra=None, detailMinutosTardanzas=None, detailMinutosJustificados=None, detailDiasFalta=None, detailDiasJustificados=None, detailSueldoNeto=None):

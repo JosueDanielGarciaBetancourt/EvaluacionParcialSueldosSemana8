@@ -1,5 +1,5 @@
 import tkinter as tk
-from src.ventanas import ViewAgregarEmpleado, ViewGestionarEmpleado,ViewActualizarBonificacion
+from src.vista import ViewAgregarEmpleado, ViewGestionarEmpleado,ViewActualizarBonificacion
 
 def abrir_ventana(ventana):
     ventana(root)

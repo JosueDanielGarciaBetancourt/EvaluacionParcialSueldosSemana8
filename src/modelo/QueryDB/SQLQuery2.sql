@@ -1,7 +1,7 @@
-﻿CREATE DATABASE dbCalculoSueldo
+﻿CREATE DATABASE dbCalculoSueldo2
 GO
 
-USE dbCalculoSueldo
+USE dbCalculoSueldo2
 GO
 
 CREATE TABLE tblBonificacion(
