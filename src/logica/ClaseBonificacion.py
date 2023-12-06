@@ -10,17 +10,6 @@ class SQLBonificacion:
         self.conexion = Conexion()
         self.cursor = self.conexion.cursor()
 
-    def AgregarBonificacion(self):
-        dato = (self.id_bonificacion, self.bon_tipo, self.bon_valor)
-        consulta = "INSERT INTO tblBonificacion (IDBonificacion, bonTipo, bonValor) VALUES (?, ?, ?)"
-        try:
-            self.cursor.execute(consulta, dato)
-            self.conexion.commit()
-            messagebox.showinfo('Mensaje', 'Bonificación agregada correctamente')
-        except Exception as e:
-            messagebox.showinfo('Mensaje de error', f'Error al agregar bonificación: {e}')
-        finally:
-            self.CerrarConexion()
 
     def ActualizarBonificacion(self):
         dato = (self.bon_valor,self.id_bonificacion)
@@ -28,7 +17,7 @@ class SQLBonificacion:
         try:
             self.cursor.execute(consulta, dato)
             self.conexion.commit()
-            messagebox.showinfo('Bonificación actualizada')
+            messagebox.showinfo('Mensaje','Bonificación actualizada')
         except Exception as e:
             messagebox.showerror(f'Error al actualizar bonificación: {e}')
         finally:
