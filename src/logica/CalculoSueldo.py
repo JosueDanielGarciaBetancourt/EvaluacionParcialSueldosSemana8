@@ -3,6 +3,9 @@ class CalcularSueldo:
         if any(param is None for param in [sueldo, horasExtra, diasFalta, minutosTardanza, Movilidad, Suplementaria]):
             raise ValueError("Ningún parámetro puede ser None")
 
+        if not all(isinstance(x, (int, float)) for x in
+                   [sueldo, horasExtra, diasFalta, minutosTardanza, Movilidad, Suplementaria]):
+            raise ValueError("Todos los parámetros deben ser numéricos")
         self.horasExtra = horasExtra
         self.sueldo = sueldo
         self.diasFalta = diasFalta
