@@ -9,6 +9,7 @@ class GeneradorBoletaPago(FPDF):
         self.id_boleta = id_boleta
         self.id_empleado=id_empleado
         self.generar_boleta()
+
     def header(self):
         self.set_font('Arial', 'B', 12)
         self.cell(0, 10, 'Boleta de Pago', 0, 1, 'C')

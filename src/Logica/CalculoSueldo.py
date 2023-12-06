@@ -31,7 +31,7 @@ class CalcularSueldo:
         sueldoNeto = sueldoBasico + bonificaciones - descuentos
         sueldoNeto = round(sueldoNeto, 2)
 
-        # Imprimir atributos
+        """"# Imprimir atributos
         print(f"sueldo: {self.sueldo}")
         print(f"horasExtra: {self.horasExtra}")
         print(f"diasFalta: {self.diasFalta}")
@@ -48,6 +48,6 @@ class CalcularSueldo:
         print(f"DescuentoFaltas: {self.DescuentoFaltas}")
         print(f"DescuentoTardanza: {self.DescuentoTardanza}")
         print(f"descuentos: {self.descuentos}")
-        print(f"SUELDO NETO: {sueldoNeto}")
+        print(f"SUELDO NETO: {sueldoNeto}")"""
         return sueldoNeto
 

@@ -209,7 +209,7 @@ def GuardarDATOSEMPLEDO(id, ventana):
 
     boleta = SQLBoletaPago(id2, sueldoNeto, descuentoTotal, bonificacionTotal, fecha2, id)
     boleta.AgregarBoletaPago()
-    ventanaGE1.destroy()
+   # ventanaGE1.destroy()
 
 
 def deshabilitar(ventanaGE):
